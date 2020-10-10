@@ -20,8 +20,8 @@
 			<span class="wel_word"></span>
 			<div>
 				<span>欢迎<span class="um_span">用户</span>光临网上商城</span>
-				<a href="../order/order.jsp">我的订单</a>
-				<a href="http://localhost:8080/shop_war_exploded/LogoutServlet">注销</a>&nbsp;&nbsp;
+				<a href="OrderServlet?action=show">我的订单</a>
+				<a href="http://localhost:8080/shop/LogoutServlet">注销</a>&nbsp;&nbsp;
 				<a href="index.jsp">返回</a>
 			</div>
 		</div>
