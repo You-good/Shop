@@ -10,6 +10,15 @@
 				margin-top: 200px;
 			}
 		</style>
+		<script>
+			$(function(){
+				$(".detailBtn").click(function(){
+					var orderNum = $($(this).parents("tr").children("td")[0]).html();
+					alert("orderNum="+orderNum);
+					window.location.href = "OrderItemServlet?orderNum="+orderNum;
+				});
+			});
+		</script>
 	</head>
 	<body>
 
@@ -28,6 +37,7 @@
 
 			<table>
 				<tr>
+					<td hidden="hidden">订单号</td>
 					<td>日期</td>
 					<td>金额</td>
 					<td>状态</td>
@@ -35,6 +45,7 @@
 				</tr>
 				<c:forEach items="${requestScope.orders}" var="order">
 					<tr>
+						<td hidden="hidden">${order.orderNum}</td>
 						<td>${order.date}</td>
 						<td>${order.total}</td>
 						<td>
@@ -42,7 +53,7 @@
 							<c:if test="${order.state==1}">已发货</c:if>
 							<c:if test="${order.state==2}">已签收</c:if>
 						</td>
-						<td><a href="#" >查看详情</a></td>
+						<td><input type="button" class="detailBtn" value="查看详情"/></td>
 					</tr>
 				</c:forEach>
 

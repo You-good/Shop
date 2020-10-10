@@ -15,7 +15,7 @@
 
 <div id="header">
     <img class="logo_img" alt="" src="static/img/logo.gif">
-    <span class="wel_word">我的订单</span>
+    <span class="wel_word">订单详情</span>
     <div>
         <span>欢迎<span class="um_span">${sessionScope.user.username}</span>光临网上商城</span>
         <a href="OrderServlet?action=show">我的订单</a>
@@ -35,16 +35,14 @@
             <td>数量</td>
             <td>金额</td>
         </tr>
-        <c:forEach items="${requestScope.orders}" var="order">
+        <c:forEach items="${requestScope.orderItems}" var="orderItem">
             <tr>
-                <td>${order.date}</td>
-                <td>${order.total}</td>
-                <td>
-                    <c:if test="${order.state==0}">未发货</c:if>
-                    <c:if test="${order.state==1}">已发货</c:if>
-                    <c:if test="${order.state==2}">已签收</c:if>
-                </td>
-                <td><a href="#" >查看详情</a></td>
+                <td>${orderItem.date}</td>
+                <td>${orderItem.goodsName}</td>
+                <td>${orderItem.brand}</td>
+                <td>${orderItem.price}</td>
+                <td>${orderItem.number}</td>
+                <td>${orderItem.money}</td>
             </tr>
         </c:forEach>
 
